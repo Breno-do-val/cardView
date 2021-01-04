@@ -1,0 +1,14 @@
+.header {
+    max-width: 90em;
+    height: 10vh;
+    background-color: #dedede;
+    margin: 0 auto;
+}
+
+.header p {
+    color: #4d4b4b;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.5em;
+}
