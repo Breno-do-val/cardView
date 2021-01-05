@@ -7,6 +7,10 @@ import { PoModule } from '@po-ui/ng-components';
 import { HeaderComponent } from './core/header/header.component';
 import { ListViewComponent } from './list-view/list-view.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,8 +19,10 @@ import { ListViewComponent } from './list-view/list-view.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    PoModule
+    PoModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

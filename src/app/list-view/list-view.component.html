@@ -1,1 +1,9 @@
-<p>list-view works!</p>
+<po-list-view
+   p-property-title="name"
+   [p-items]="_todos">
+   <div *p-list-view-detail-template="let item, let i=index" class="po-row">
+     <po-info class="po-md-12" p-label="Id" [p-value]="item.id"></po-info>
+     <po-info class="po-md-12" p-label="Title" [p-value]="item.title"></po-info>
+     <po-info class="po-md-12" p-label="Completed" [p-value]="item.completed"></po-info>
+   </div>
+</po-list-view>
