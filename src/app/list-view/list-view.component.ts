@@ -31,12 +31,19 @@ export class ListViewComponent implements OnInit {
     this.columns = this.listViewService.getColumns();
   }
 
+  /**
+   * The property 'completed' has to be converted to string
+   */
   retrieveAll(): void {
     this.listViewService.retrieveAll().subscribe(todos => {
       this.items = todos.map(this.convertPropertyToString)
     });
   }
 
+  /**
+   * 
+   * @param todo Model to be transformed
+   */
   convertPropertyToString(todo: Todo): any {
     let newTodo = { 
       id: todo.id,
