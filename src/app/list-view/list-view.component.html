@@ -1,9 +1,22 @@
-<po-list-view
-   p-property-title="name"
-   [p-items]="_todos">
-   <div *p-list-view-detail-template="let item, let i=index" class="po-row">
-     <po-info class="po-md-12" p-label="Id" [p-value]="item.id"></po-info>
-     <po-info class="po-md-12" p-label="Title" [p-value]="item.title"></po-info>
-     <po-info class="po-md-12" p-label="Completed" [p-value]="item.completed"></po-info>
-   </div>
-</po-list-view>
+<div class="container">
+
+  <po-table
+    p-sort="true"
+    [p-columns]="columns"
+    [p-items]="items"
+  >
+    <ng-template
+      p-table-row-template
+      let-rowItem
+      let-i="rowIndex"
+      [p-table-row-template-arrow-direction]="'right'"
+    >
+      <po-widget p-title="Details ">
+        <div class="po-row">
+          {{ rowItem.title }}
+        </div>
+      </po-widget>
+    </ng-template>
+  </po-table>
+</div>
+
