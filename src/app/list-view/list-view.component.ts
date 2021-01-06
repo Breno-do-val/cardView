@@ -5,7 +5,6 @@ import { PoTableColumn } from '@po-ui/ng-components';
 
 import { ListViewService } from './list-view.service';
 import { Todo } from '../models/to-do.model';
-import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-list-view',
@@ -24,8 +23,8 @@ export class ListViewComponent implements OnInit {
   ];
 
   constructor(
-    private readonly todoService: TodoService,
-    private readonly listViewService: ListViewService) { }
+    private readonly listViewService: ListViewService
+  ) { }
 
   ngOnInit(): void {
     this.retrieveAll();
@@ -33,18 +32,18 @@ export class ListViewComponent implements OnInit {
   }
 
   retrieveAll(): void {
-    this.todoService.retrieveAll().subscribe(todos => {
+    this.listViewService.retrieveAll().subscribe(todos => {
       this.items = todos.map(this.convertPropertyToString)
     });
   }
 
-  convertPropertyToString(todo: Todo): Todo {
-    if (todo.completed == true) {
-      todo.completed = 'true';
-    } else {
-      todo.completed = 'false'
+  convertPropertyToString(todo: Todo): any {
+    let newTodo = { 
+      id: todo.id,
+      title: todo.title,
+      completed: todo.completed.toString()
     }
-    return todo;
+    return newTodo;
   }
 
 }

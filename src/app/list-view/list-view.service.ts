@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
 
 import { PoTableColumn } from '@po-ui/ng-components';
+
+import { Todo } from './../models/to-do.model';
 
 @Injectable()
 export class ListViewService {
@@ -16,5 +21,13 @@ export class ListViewService {
         ]
       }
     ];
+  }
+
+  private BASE_URL: string = 'https://jsonplaceholder.typicode.com/todos';
+
+  constructor(private readonly httpClient: HttpClient) { }
+
+  retrieveAll(): Observable<Todo[]> {
+    return this.httpClient.get<Todo[]>(this.BASE_URL);
   }
 }
